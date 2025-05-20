@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/"/>
+    <meta charset="utf-8"/>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Montserrat);
+      html, body {
+        font-family: 'Montserrat', sans-serif;
+        width: 100%;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+      }
+      h1 {
+        font-size: 4rem;
+        margin: unset;
+      }
+      @font-face {
+        font-family: "Agustina";
+        src: url(fonts/agustina/agustina.otf);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 0px;
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background-color: #C0392B;
+      }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+    <!--$-->
+    <title>Wasim</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="og:title" content="Wasim - Random Dude!"/>
+    <meta name="og:url" content="https://www.mwasim.dev"/>
+    <!--/-->
+    <script src="app.client.dart.js" defer></script>
+    <style>
+      .app-button {
+        padding: 10px;
+        width: 100px;
+        border: solid #C0392B 1px;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: transparent;
+      }
+      .app-button:hover {
+        background-color: #C0392B;
+        cursor: pointer;
+        transition: background-color 500ms;
+      }
+      .label {
+        font-size: 12px;
+      }
+      .certificate-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 380px;
+        height: 250px;
+        border-radius: 12px;
+        background-color: #212121;
+        text-decoration: none;
+      }
+      .certificate-card:hover {
+        box-shadow: 0px 0px 8px 2px #C0392B;
+        cursor: pointer;
+        transition: box-shadow 500ms;
+      }
+      .certificate-image {
+        width: 380px;
+        height: 250px;
+      }
+      .certificate-description {
+        font-size: 12px;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 10px;
+      }
+      .certificate-image {
+        opacity: 1.0;
+        border-radius: 12px;
+        position: absolute;
+      }
+      .certificate-image:hover {
+        opacity: 0.0;
+        transition: opacity 500ms;
+      }
+      .contact-card {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        margin-top: 25px;
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 300px;
+        height: 150px;
+        border-radius: 12px;
+        background-color: #212121;
+      }
+      .contact-card:hover {
+        box-shadow: 0px 0px 8px 2px #C0392B;
+        transition: box-shadow 500ms;
+      }
+      .c-icon {
+        color: #C0392B;
+        font-size: 50px;
+      }
+      .c-title {
+        color: #C0392B;
+        font-size: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+      .c-description {
+        font-size: 12px;
+      }
+      .foot {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        font-size: 12px;
+      }
+      .tech-name {
+        font-size: 12px;
+        text-decoration: none;
+        margin-left: 5px;
+      }
+      .navbar {
+        padding: 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+      }
+      .navbar-label {
+        padding-right: 35px;
+        font-size: 12px;
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .navbar-label:hover {
+        color: #C0392B;
+        transition: color 500ms;
+      }
+      .labels {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+      }
+      .brand {
+        font-family: 'Agustina';
+        font-size: 24px;
+      }
+      .banner-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 380px;
+        height: 250px;
+        border-radius: 12px;
+        background-color: #212121;
+        text-decoration: none;
+      }
+      .banner-card:hover {
+        box-shadow: 0px 0px 8px 2px #C0392B;
+        cursor: pointer;
+        transition: box-shadow 500ms;
+      }
+      .banner-image {
+        width: 380px;
+        height: 250px;
+      }
+      .service-description {
+        font-size: 12px;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 10px;
+      }
+      .banner-image {
+        opacity: 1.0;
+        border-radius: 12px;
+        position: absolute;
+      }
+      .banner-image:hover {
+        opacity: 0.0;
+        transition: opacity 500ms;
+      }
+      .service-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        margin-top: 25px;
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 250px;
+        height: 200px;
+        border-radius: 12px;
+        background-color: teal;
+      }
+      .service-title {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+      .service-card:hover {
+        box-shadow: 0px 0px 8px 2px #C0392B;
+        transition: box-shadow 500ms;
+      }
+      .home-body {
+        width: 100vw;
+        background-color: black;
+      }
+      .about-me-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+      }
+      .play-icon {
+        color: #C0392B;
+      }
+      .title {
+        font-family: 'Montserrat';
+        font-size: 40px;
+        font-weight: 100;
+      }
+      .about-section-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+      }
+      .profile-picture {
+        background-image: url(images/photos/pic.png);
+        background-size: cover;
+        margin-right: 40px;
+        width: 550px;
+        height: 550px;
+      }
+      .about-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        width: 750px;
+      }
+      .intro-label {
+        font-size: 18px;
+      }
+      .intro-heading {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+      .intro-details {
+        color: lightGrey;
+        word-spacing: 1.5px;
+        line-height: 3vh;
+      }
+      .divider {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        width: 100%;
+        height: 1px;
+        background-color: lightGrey;
+      }
+      .tech-label {
+        font-size: 12px;
+      }
+      .tech-stack {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: center;
+        margin-top: 15px;
+      }
+      .tech-item {
+        margin-left: 5px;
+        margin-right: 12px;
+        font-size: 14px;
+      }
+      .personal-label {
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .personal-value {
+        font-size: 12px;
+      }
+      .personal-row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .work-row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      @media screen and (max-width: 1350px) {
+      .profile-picture {
+        margin-left: 50px;
+        margin-right: 50px;
+        max-height: 100%;
+      }
+      .about-details {
+        width: 45vw;
+      }
+      }
+      @media screen and (max-width: 1100px) {
+      .profile-picture {
+        margin-left: 30px;
+        margin-right: 30px;
+        width: 400px;
+        max-height: 80%;
+      }
+      .about-details {
+        width: 45vw;
+      }
+      }
+      @media screen and (max-width: 900px) {
+      .about-me-section {
+        padding-top: 3vh;
+        padding-right: 0vw;
+      }
+      .about-section-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+      }
+      .profile-picture {
+        background-image: url(images/photos/pic.png);
+        background-size: cover;
+        width: 250px;
+        height: 250px;
+      }
+      .about-details {
+        margin-top: 40px;
+        width: 80%;
+      }
+      }
+      .info-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10vw;
+      }
+      .welcome {
+        margin-bottom: 2.5vh;
+        display: flex;
+        align-items: end;
+      }
+      .welcome-text {
+        padding-right: 12px;
+        padding-bottom: 2px;
+        font-family: 'Montserrat';
+        font-size: 20px;
+      }
+      .first-name {
+        padding-top: 3vh;
+        font-family: 'Montserrat';
+        font-weight: 100;
+        line-height: 3vh;
+      }
+      @font-face {
+        font-family: "PoppinsBold";
+        src: url(/fonts/poppins/Poppins-Bold.ttf);
+      }
+      .last-name {
+        font-family: 'PoppinsBold';
+        font-weight: bolder;
+      }
+      .main-image {
+        width: 75vh;
+        height: 85vh;
+        background-image: url(images/photos/black-white.png);
+        background-size: cover;
+      }
+      .play-icon {
+        color: #C0392B;
+      }
+      .subtitle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .dynamic-subtitles {
+        margin-left: 15px;
+        font-size: 18px;
+      }
+      .socials {
+        padding-top: 2vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .social-icon {
+        color: white;
+        font-size: 25px;
+        padding-right: 25px;
+      }
+      .social-icon:hover {
+        color: #C0392B;
+        transition: color 300ms;
+      }
+      @media screen and (max-width: 1100px) {
+      .welcome-text {
+        font-size: 15px;
+      }
+      .first-name {
+        font-size: 50px;
+      }
+      .last-name {
+        font-size: 50px;
+      }
+      .dynamic-subtitles {
+        font-size: 14px;
+      }
+      .main-image {
+        width: 55vh;
+        height: 65vh;
+      }
+      .play-icon {
+        height: 15px;
+      }
+      }
+      @media screen and (max-width: 786px) {
+      .info-section {
+        display: flex;
+        flex-direction: column;
+      }
+      .main-image {
+        width: 45vh;
+        height: 55vh;
+        align-self: end;
+      }
+      .info {
+        align-self: start;
+      }
+      }
+      .certificates-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        padding: 5vh 10vw;
+      }
+      .section-body-certificates {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+      }
+      .contact-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        padding: 5vh 10vw;
+      }
+      .contact-body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+      }
+      .projects-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        padding: 5vh 10vw;
+      }
+      .section-body-projects {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+      }
+      .services-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+      }
+      .section-body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+      }
+      .main p {
+        color: white;
+      }
+      .main a {
+        color: white;
+      }
+      .main h1 {
+        color: white;
+      }
+      .main h2 {
+        color: white;
+      }
+      .main span {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!--$app-->
+    <div class="main">
+      <div class="home-body">
+        <section class="navbar">
+          <div><span>&lt; </span><span class="brand">Wasim </span><span>&#47;&gt;</span></div>
+          <div class="labels">
+            <a class="navbar-label" href="#">HOME</a>
+            <a class="navbar-label" href="#about">ABOUT</a>
+            <a class="navbar-label" href="#services">SERVICES</a>
+            <a class="navbar-label" href="#projects">PROJECTS</a>
+            <a class="navbar-label" href="#certificates">CERTIFICATES</a>
+            <a class="navbar-label" href="#contact">CONTACT</a>
+            <a class="app-button" href="https://drive.google.com/file/d/1wD8fpcJ1pontBO0_Bx-06FqQhNHl1CLN/view" target="_blank"><span class="label">RESUME</span></a>
+          </div>
+        </section>
+        <section class="info-section">
+          <div class="info">
+            <div class="welcome">
+              <span class="welcome-text">WELCOME TO MY PORTFOLIO</span>
+              <img class="wave" height="35" src="images/hi.gif"/>
+            </div>
+            <h1 class="first-name">Md</h1>
+            <h1 class="last-name">Wasim</h1>
+            <span class="subtitle">
+              <i class="fa-solid fa-play play-icon"></i>
+              <span class="dynamic-subtitles">Flutter Developer</span>
+            </span>
+            <div class="socials">
+              <a class="social-icon" href="https://www.linkedin.com/in/md-wasim-154590200/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+              <a class="social-icon" href="https://github.com/Wasim0011" target="_blank"><i class="fa-brands fa-github"></i></a>
+              <a class="social-icon" href="https://www.instagram.com/mdwasim3456/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="main-image"></div>
+        </section>
+        <section class="about-me-section">
+          <span id="about" class="title">About Me</span>
+          <span class="subtitle">Get to know me :)</span>
+          <div class="about-section-body">
+            <div class="profile-picture"></div>
+            <div class="about-details">
+              <span class="intro-label" style="color: #C0392B; font-size: 30px; font-weight: bold">Who am I?</span>
+              <span class="intro-heading">
+                Md Wasim | Flutter Developer • AI&#47;ML Enthusiast • Robotics &amp; IoT Innovator
+              </span>
+              <span class="intro-details" style="color: lightGrey">
+                I&#39;m a third-year B.Tech student in Electronics and Communication Engineering at NIT Raipur, with a strong passion for Flutter development, AI&#47;ML, and robotics. I have been working with Flutter for the past one year, developing applications for both Android and iOS. I have developed multiple applications using Flutter, including a dynamic Quiz App and a BMI Calculator, focusing on functionality and user engagement. Additionally, I have hands-on experience in AI&#47;ML, having worked on human activity recognition using CSI signals during my research internship at IIT Patna. Beyond development, I have participated in competitive programming and technical competitions, achieving recognition in events like Adobe GenSolve and Avinya at NIT Raipur.
+              </span>
+              <div class="divider"></div>
+              <span class="tech-label" style="color: #C0392B">Technologies I have worked with:</span>
+              <div class="tech-stack">
+                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">Flutter</span></span>
+                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">Dart</span></span>
+                <span>
+                  <i class="fa-solid fa-play play-icon"></i>
+                  <span class="tech-item">Firebase</span>
+                </span>
+                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">Python</span></span>
+                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">jaspr</span></span>
+                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">OpenCV</span></span>
+                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">C++</span></span>
+                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">SQL</span></span>
+                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">HTML</span></span>
+                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">CSS</span></span>
+              </div>
+              <div class="divider"></div>
+              <div class="personal-row">
+                <div>
+                  <span class="personal-label">Name: </span>
+                  <span class="personal-value" style="color: goldenRod">Md Wasim</span>
+                </div>
+                <div>
+                  <span class="personal-label">Email: </span>
+                  <span class="personal-value" style="color: goldenRod">mwasim060.btech2022@gmail.com</span>
+                </div>
+              </div>
+              <div style="height: 15px"></div>
+              <div class="personal-row">
+                <div>
+                  <span class="personal-label">Age: </span>
+                  <span class="personal-value" style="color: goldenRod">22</span>
+                </div>
+                <div>
+                  <span class="personal-label">From: </span>
+                  <span class="personal-value" style="color: goldenRod">Bihar, India</span>
+                </div>
+              </div>
+              <div style="height: 25px"></div>
+              <div class="work-row">
+                <a class="app-button" href="https://drive.google.com/file/d/1wD8fpcJ1pontBO0_Bx-06FqQhNHl1CLN/view?usp=sharing" target="_blank"><span class="label">RESUME</span></a>
+                <div class="divider" style="width: 80px"></div>
+                <a class="work-item" href="https://www.geeksforgeeks.org/user/wmd099vm/" target="_blank"><img height="50" src="images/work/geeks.jpg"/></a>
+                <a class="work-item" href="https://www.nitrr.ac.in/" target="_blank"><img height="50" src="images/work/cui.png"/></a>
+                <a class="work-item" href="https://www.iitp.ac.in/" target="_blank"><img height="50" src="images/work/dsc.png"/></a>
+                <a class="work-item" href="https://nitrr.ac.in/downloads/stu%20welfare/Robotix%20club.pdf" target="_blank"><img height="50" src="images/work/flutterIsl.png"/></a>
+                <a class="work-item" href="https://www.nitrr.ac.in/UBA/index.html" target="_blank"><img height="50" src="images/work/st.png"/></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="services-section">
+          <span class="title">What I can do?</span>
+          <span class="subtitle">I may not be perfect but surely I&#39;m of some use :)</span>
+          <div id="services" class="section-body">
+            <div class="service-card">
+              <img height="80" src="images/services/app.png"/>
+              <span class="service-title">Flutter Development</span>
+            </div>
+            <div class="service-card">
+              <img height="80" src="images/services/frontend.png"/>
+              <span class="service-title">Frontend Development</span>
+            </div>
+            <div class="service-card">
+              <img height="80" src="images/services/ds_ml.png"/>
+              <span class="service-title">Data Science&#47;ML</span>
+            </div>
+            <div class="service-card">
+              <img height="80" src="images/services/robotics_ai.png"/>
+              <span class="service-title">Robotics&#47;AI</span>
+            </div>
+            <div class="service-card">
+              <img height="80" src="images/services/open.png"/>
+              <span class="service-title">Open Source - GitHub</span>
+            </div>
+          </div>
+        </section>
+        <section class="projects-section">
+          <span class="title">Projects</span>
+          <span class="subtitle">Here are few samples of my work :)</span>
+          <div id="projects" class="section-body-projects">
+            <a class="certificate-card" href="https://github.com/Wasim0011/Flutter/tree/main/bmi_calculator" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/BMI_calculator.png); background-size: cover"></div>
+              <img height="80" src="images/projects/BMI_calculator_f.png"/>
+              <span class="service-title">BMI Calculator</span>
+              <span class="service-description">
+                The BMI Calculator App is a clean, interactive Flutter app that lets users input their height and weight to calculate BMI, showing the result with a health category and quick interpretation.
+              </span>
+            </a>
+            <a class="certificate-card" href="https://github.com/Wasim0011/Transmitter" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/robowar.jpeg); background-size: cover"></div>
+              <img height="80" src="images/projects/robowar_f.png"/>
+              <span class="service-title">Combat Robot</span>
+              <span class="service-description">
+                Participated in International Robowars @ IIT Bombay (Techfest 2023)
+                As part of Team Tech-Titans, we designed and built a combat robot from scratch and competed at one of India’s biggest robotics events—Techfest, IIT Bombay.
+              </span>
+            </a>
+            <a class="certificate-card" href="https://github.com/Wasim0011/Arduino/tree/main/ClapSwitch" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/ClapSwitch.jpeg); background-size: cover"></div>
+              <img height="80" src="images/projects/ClapSwitch_f.jpg"/>
+              <span class="service-title">Clap Switch</span>
+              <span class="service-description">
+                The system is designed to detect clapping sounds and trigger an electrical appliance or light, making it an excellent addition to home automation and accessibility applications.
+              </span>
+            </a>
+            <a class="certificate-card" href="https://github.com/Wasim0011/Transmitter/tree/main/RaceCar" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/RaceCar.jpeg); background-size: cover"></div>
+              <img height="80" src="images/projects/RaceCar_f.jpg"/>
+              <span class="service-title">Race Car</span>
+              <span class="service-description">
+                This race car is controlled using a wireless transmitter I designed and built from scratch. It features dual DC motors, off-road tires, and a custom-built circuit for real-time control.
+              </span>
+            </a>
+            <a class="certificate-card" href="https://github.com/Wasim0011/Flutter/tree/main/quiz" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/quiz.png); background-size: cover"></div>
+              <img height="80" src="images/projects/quiz_f.png"/>
+              <span class="service-title">Quiz App</span>
+              <span class="service-description">
+                This is an interactive mobile app designed to test your knowledge across a variety of topics. With a sleek design and timed challenges, users can enjoy quick quizzes, track their scores, and learn as they play. 
+              </span>
+            </a>
+            <a class="certificate-card" href="https://github.com/Wasim0011/Flutter/tree/main/bitcoin_ticker" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/bitcoin.png); background-size: cover"></div>
+              <img height="80" src="images/projects/bitcoin_f.jpg"/>
+              <span class="service-title">Bitcoin Ticker</span>
+              <span class="service-description">
+                A simple and clean crypto tracker app showing real-time prices for Bitcoin, Ethereum, and Litecoin in multiple currencies like USD and INR. Includes an easy currency switcher and color-coded UI for quick insights.
+              </span>
+            </a>
+            <a class="certificate-card" href="https://github.com/Wasim0011/Flutter/tree/main/clima" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/clima.png); background-size: cover"></div>
+              <img height="80" src="images/projects/clima_f.jpg"/>
+              <span class="service-title">Clima</span>
+              <span class="service-description">
+                A sleek weather app that uses live API data to show real-time conditions based on your location, with helpful tips to keep you informed and prepared.
+              </span>
+            </a>
+            <a class="certificate-card" href="https://github.com/Wasim0011/Arduino/tree/main/SmartWaterIrrigationSystem" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/WaterIrrigationSystem.jpg); background-size: cover"></div>
+              <img height="80" src="images/projects/WaterIrrigationSystem_f.png"/>
+              <span class="service-title">Automated Irrigation System</span>
+              <span class="service-description">
+                This 
+                system will utilize the waste water, save the plant and also stop further wastage of water by 
+                irrigating the soil according to the requirement of soil.
+              </span>
+            </a>
+            <a class="certificate-card" href="https://github.com/Wasim0011/Flutter/tree/main/todo_app" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/todo.png); background-size: cover"></div>
+              <img height="80" src="images/projects/todo_f.jpg"/>
+              <span class="service-title"></span>
+              <span class="service-description">
+                Stay organized and productive with our simple and intuitive to-do list app. Effortlessly manage tasks, track daily goals, and keep your life on schedule—all in one place.
+              </span>
+            </a>
+            <a class="certificate-card" href="https://github.com/Wasim0011/Arduino/tree/main/SmartDustbin" target="_blank">
+              <div class="banner-image" style="background-image: url(images/projects/SmartDustbin.jpg); background-size: cover"></div>
+              <img height="80" src="images/projects/SmartDustbin_f.jpg"/>
+              <span class="service-title">Smart Dustbin</span>
+              <span class="service-description">
+                The Smart Dustbin Robot project aims to revolutionize waste management by introducing an intelligent robotic system capable of autonomously collecting and segregating garbage. 
+              </span>
+            </a>
+          </div>
+          <div style="height: 45px"></div>
+          <a class="app-button" href="https://github.com/Wasim0011" target="_blank"><span class="label">See more</span></a>
+        </section>
+        <section class="certificates-section">
+          <span class="title">Certificates</span>
+          <span class="subtitle">These are some of the certificates I&#39;ve obtained :)</span>
+          <div id="certificates" class="section-body-projects">
+            <a class="banner-card" href="https://drive.google.com/file/d/1StRBnWDFfIu9T8IzmW-WCN9pBVn4RING/view?usp=sharing" target="_blank">
+              <div class="certificate-image" style="background-image: url(images/certificates/adobe_gensolve.jpg); background-size: cover"></div>
+              <img height="80" src="images/certificates/adobe_gensolve_f.png"/>
+              <span class="certificate-title">Adobe Gensolve Hackathon</span>
+              <span class="certificate-description">
+                Achieved top 5 percentile in Adobe GenSolve 2024, a national hackathon with 100,000+ students from 400+ colleges, recognized for innovation and impact!
+              </span>
+            </a>
+            <a class="banner-card" href="https://drive.google.com/file/d/1RNG_sgjFiNstZ13oNyTwydGpVLK2l4c4/view?usp=sharing" target="_blank">
+              <div class="certificate-image" style="background-image: url(images/certificates/UdemyC++.jpg); background-size: cover"></div>
+              <img height="80" src="images/certificates/UdemyC++_f.png"/>
+              <span class="certificate-title">C++ Programming Certificate</span>
+              <span class="certificate-description">
+                Completed a 30.5-hour Udemy course titled &quot;Learn C++ Programming – Beginner to Advance – Deep Dive in C++&quot; by Abdul Bari, covering foundational to advanced C++ concepts.
+              </span>
+            </a>
+            <a class="banner-card" href="https://drive.google.com/file/d/1sWwPUV_oQc3bwKhyoaI5yni1r0HNZROK/view?usp=sharing" target="_blank">
+              <div class="certificate-image" style="background-image: url(images/certificates/gfg_dsa_certificate.jpg); background-size: cover"></div>
+              <img height="80" src="images/certificates/gfg_dsa_certificate_f.jpg"/>
+              <span class="certificate-title">DSA Self Paced Course</span>
+              <span class="certificate-description">
+                Successfully completed a 16-week self-paced course on Data Structures and Algorithms offered by GeeksforGeeks, covering core DSA concepts essential for coding and problem-solving.
+              </span>
+            </a>
+            <a class="banner-card" href="https://drive.google.com/file/d/1idzfnMRbJR2GeOr9rJjJZjSQQKVI11Tw/view?usp=sharing" target="_blank">
+              <div class="certificate-image" style="background-image: url(images/certificates/IITP_internCertificate.jpg); background-size: cover"></div>
+              <img height="80" src="images/certificates/IITP_internCertificate_f.png"/>
+              <span class="certificate-title">Research Intern</span>
+              <span class="certificate-description">
+                Completed a one-month research internship at the IoT Lab, Department of EE, IIT Patna (May 8 – June 8, 2024), under the guidance of Dr. Sudhir Kumar. Worked on the project &quot;Human Activity Recognition using CSI signals.
+              </span>
+            </a>
+            <a class="banner-card" href="https://drive.google.com/file/d/1uQayqnMpo1_lzuGez9AX_rhVMEYqFr9N/view?usp=sharing" target="_blank">
+              <div class="certificate-image" style="background-image: url(images/certificates/Flutter_certificate.jpg); background-size: cover"></div>
+              <img height="80" src="images/certificates/Flutter_certificate_f.png"/>
+              <span class="certificate-title">App Development</span>
+              <span class="certificate-description">
+                Completed The Complete Flutter Development Bootcamp with Dart by Dr. Angela Yu on Udemy (29 hours, Nov 2024).
+              </span>
+            </a>
+            <a class="banner-card" href="https://drive.google.com/file/d/1iWbz71ihSqpG5hLv0V7k0LkHSgG7KmmM/view?usp=sharing" target="_blank">
+              <div class="certificate-image" style="background-image: url(images/certificates/TCScertificate.jpg); background-size: cover"></div>
+              <img height="80" src="images/certificates/TCScertificate_f.png"/>
+              <span class="certificate-title">Virtual Experience Program</span>
+              <span class="certificate-description">
+                Completed the TCS ESG Virtual Experience Program on Forage (Aug 2023), gaining practical skills in client analysis, sustainability assessment, and fitment matrix presentation.
+              </span>
+            </a>
+            <a class="banner-card" href="https://drive.google.com/file/d/1petyz9dVQdP_3inG3PEFjm8GyvE0Dm_8/view?usp=sharing" target="_blank">
+              <div class="certificate-image" style="background-image: url(images/certificates/IITP_online_internCertificate1.jpg); background-size: cover"></div>
+              <img height="80" src="images/certificates/IITP_internCertificate_f.png"/>
+              <span class="certificate-title">Online Internship</span>
+              <span class="certificate-description">
+                Successfully completed an online internship offered by Department of Computer Science and Engineering, IIT Patna (May 5 – June 15, 2024), under the mentorship of Dr. Mayank Agarwal. Worked on the project &quot;Detection of Cyber-Security Attacks using ML and DL&quot;.
+              </span>
+            </a>
+            <a class="banner-card" href="https://drive.google.com/file/d/1xlxRC7gnIMEd08M3tWKG3UDM-rKNgSbn/view?usp=sharing" target="_blank">
+              <div class="certificate-image" style="background-image: url(images/certificates/AWS_certificate.jpg); background-size: cover"></div>
+              <img height="80" src="images/certificates/AWS_certificate_f.png"/>
+              <span class="certificate-title">AWS Fundamentals</span>
+              <span class="certificate-description">
+                Completed a 9.5-hour Udemy course on AWS cloud fundamentals, covering key services, architecture, and cloud concepts, taught by certified AWS expert Neal Davis.
+              </span>
+            </a>
+          </div>
+        </section>
+        <section class="contact-section">
+          <span class="title">Get in Touch</span>
+          <span class="subtitle">Let&#39;s build something together :)</span>
+          <div id="contact" class="contact-body">
+            <a class="contact-card" href="https://maps.app.goo.gl/MXozPxof7WDxSLbs9" target="_blank">
+              <i class="fa-solid fa-house c-icon"></i>
+              <span class="c-title">Location</span>
+              <span class="c-description">Bihar, India</span>
+            </a>
+            <a class="contact-card" href="https://wa.me/+918252616689?text=Hello%20Wasim%2C%20I%20found%20your%20Portfolio%20awesome!
+            " target="_blank">
+              <i class="fa-solid fa-phone c-icon"></i>
+              <span class="c-title">Phone</span>
+              <span class="c-description">+91 8252616689</span>
+            </a>
+            <a class="contact-card" href="mailto:wasim001259@gmail.com?subject=Hello%20Wasim&amp;body=I%20checked%20your%20Portfolio%20and%20wanted%20to%20connect.
+            " target="_blank">
+              <i class="fa-solid fa-envelope c-icon"></i>
+              <span class="c-title">Email</span>
+              <span class="c-description">wasim001259@gmail.com</span>
+            </a>
+          </div>
+        </section>
+        <footer class="foot">
+          <span>Developed with 💙 using</span>
+          <a class="tech-name" style="color: #1977d1" href="https://dart.dev/" target="_blank">Dart</a>
+          <span style="color: #ffffff">  and </span>
+          <a class="tech-name" style="color: #1977d1" href="https://jaspr.site/" target="_blank">Jaspr</a>
+        </footer>
+      </div>
+    </div>
+    <!--/$app-->
+  </body>
+</html>
